@@ -21,8 +21,7 @@ export class ConnectChecker extends Component {
         console.log(`Online status: ${isOnline}`); // Log online status
         this.setState({ isOnline }, () => {
             // Update the Mendix attribute
-            if (isOnline) this.props.connectivityBoolean.setValue(true);
-            else this.props.connectivityBoolean.setValue(false);
+           this.props.connectivityBoolean.setValue(isOnline);
 
             // Execute onChangeAction if it exists
             if (this.props.onChangeAction) {
