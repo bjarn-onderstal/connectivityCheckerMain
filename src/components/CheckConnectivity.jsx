@@ -1,4 +1,4 @@
-import React, { createElement, Component } from "react";
+import { createElement, Component } from "react";
 
 export class ConnectChecker extends Component {
     constructor(props) {
@@ -32,7 +32,5 @@ export class ConnectChecker extends Component {
     }
 
     render() {
-        // No JSX required, but the render method must exist
-        return null;
     }
 }

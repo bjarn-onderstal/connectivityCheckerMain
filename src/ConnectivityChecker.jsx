@@ -1,4 +1,4 @@
-import { Component, createElement } from "react";
+import { createElement, Component } from "react";
 
 import { ConnectChecker } from "./components/CheckConnectivity";
 
