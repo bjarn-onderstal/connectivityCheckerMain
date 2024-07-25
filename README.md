@@ -1,24 +1,18 @@
 ## ConnectivityChecker
-[A widget which will trigger an event when it switches from online to offline or vice versa]
+A widget which will trigger an event when the connectivity of the device switches from online to offline or vice versa
 
 ## Features
-[feature highlights]
+- Change boolean value when the device switches from online to offline or vice versa
+- Trigger an event when the device switches from online to offline or vice versa
 
 ## Usage
-[step by step instructions]
+1. Place widget inside of data view
+2. Select boolean attribute to store the connectivity
+3. Select the on click action (if needed)
 
 ## Demo project
-[link to sandbox]
+https://connectivityapp-sandbox.mxapps.io/
 
 ## Issues, suggestions and feature requests
-[link to GitHub issues]
+https://github.com/bjarn-onderstal/connectivityCheckerMain
 
-## Development and contribution
-
-1. Install NPM package dependencies by using: `npm install`. If you use NPM v7.x.x, which can be checked by executing `npm -v`, execute: `npm install --legacy-peer-deps`.
-1. Run `npm start` to watch for code changes. On every change:
-    - the widget will be bundled;
-    - the bundle will be included in a `dist` folder in the root directory of the project;
-    - the bundle will be included in the `deployment` and `widgets` folder of the Mendix test project.
-
-[specify contribution]
