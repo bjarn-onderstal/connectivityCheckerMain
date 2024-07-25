@@ -1,4 +1,4 @@
-import React, { createElement, Component } from 'react';
+import React, { createElement, Component } from "react";
 
 export class ConnectChecker extends Component {
     constructor(props) {
@@ -6,12 +6,17 @@ export class ConnectChecker extends Component {
         this.state = {
             isOnline: navigator.onLine
         };
+
+        // Bind methods
+        this.updateOnlineStatus = this.updateOnlineStatus.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
 
     componentDidMount() {
+        console.log(this.props.onChangeAction); // Check if prop is passed correctly
         // Add event listeners for online and offline events
-        window.addEventListener('online', this.updateOnlineStatus);
-        window.addEventListener('offline', this.updateOnlineStatus);
+        window.addEventListener("online", this.updateOnlineStatus);
+        window.addEventListener("offline", this.updateOnlineStatus);
 
         // Initial check
         this.updateOnlineStatus();
@@ -19,40 +24,34 @@ export class ConnectChecker extends Component {
 
     componentWillUnmount() {
         // Cleanup event listeners on component unmount
-        window.removeEventListener('online', this.updateOnlineStatus);
-        window.removeEventListener('offline', this.updateOnlineStatus);
+        window.removeEventListener("online", this.updateOnlineStatus);
+        window.removeEventListener("offline", this.updateOnlineStatus);
     }
 
-    updateOnlineStatus = () => {
+    updateOnlineStatus() {
         const isOnline = navigator.onLine;
-        this.setState({ isOnline }, () => {
-            if (isOnline) {
-                console.log('You are online');
-                // You can add your logic here for when the user is online
-            } else {
-                console.log('You are offline');
-                // You can add your logic here for when the user is offline
-            }
-            this.onChange();
-        });
-    };
+        console.log(`Online status: ${isOnline}`); // Log online status
+        this.setState({ isOnline }, this.onChange);
+    }
 
     render() {
+        console.log(`Render: ${this.state.isOnline}`); // Log render calls
         return (
             <div>
-                <p>{this.state.isOnline ? 'You are online' : 'You are offline'}</p>
+                <p>{this.state.isOnline ? "You are online" : "You are offline"}</p>
             </div>
         );
     }
 
     onChange = () => {
+        console.log("onChange triggered"); // Add log to check if method is called
         // Update ConnectivityBoolean prop
-        if (typeof this.props.connectivityBoolean === 'function') {
-            this.props.connectivityBoolean(this.state.isOnline);
-        }
+         if (typeof this.props.connectivityBoolean === "function") {
+             this.props.connectivityBoolean(this.state.isOnline);
+         }
 
         if (this.props.onChangeAction) {
             this.props.onChangeAction.execute();
         }
-    };
+    }
 }

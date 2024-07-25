@@ -6,7 +6,7 @@ export class ConnectivityChecker extends Component {
     render() {
         return <ConnectChecker 
         connectivityBoolean={this.props.connectivityBoolean}
-        OnchangeAction={this.props.onchangeAction} />;
+        onChangeAction={this.props.onChangeAction} />;
     }
 }
 
