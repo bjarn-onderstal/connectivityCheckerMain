@@ -10,15 +10,10 @@ export class ConnectChecker extends Component {
     }
 
     componentDidMount() {
-        window.addEventListener('online', this.updateOnlineStatus);
-        window.addEventListener('offline', this.updateOnlineStatus);
+        window.addEventListener("online", this.updateOnlineStatus);
+        window.addEventListener("offline", this.updateOnlineStatus);
         // Initial check
         this.updateOnlineStatus();
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('online', this.updateOnlineStatus);
-        window.removeEventListener('offline', this.updateOnlineStatus);
     }
 
     updateOnlineStatus() {
@@ -26,19 +21,15 @@ export class ConnectChecker extends Component {
         console.log(`Online status: ${isOnline}`); // Log online status
         this.setState({ isOnline }, () => {
             // Update the Mendix attribute
-            if (typeof this.props.updateConnectivityBoolean === "function") {
-                this.props.updateConnectivityBoolean(isOnline);
-                console.log(`Updated connectivityBoolean to: ${isOnline}`);
-            }
+            if (isOnline) this.props.connectivityBoolean.setValue(true);
+            else this.props.connectivityBoolean.setValue(false);
 
             // Execute onChangeAction if it exists
             if (this.props.onChangeAction) {
                 this.props.onChangeAction.execute();
-                console.log('Boolean value:' + this.props.connectivityBoolean.value)
             }
         });
     }
-
 
     render() {
         // No JSX required, but the render method must exist

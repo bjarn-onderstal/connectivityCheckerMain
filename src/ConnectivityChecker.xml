@@ -15,7 +15,7 @@
                     <attributeType name="Boolean" />
                 </attributeTypes>
             </property>
-            <property key="onChangeAction" type="action">
+            <property key="onChangeAction" type="action" required="true">
                 <caption>On change</caption>
                 <description>Action to be performed when the connectivity value is changed</description>
             </property>
