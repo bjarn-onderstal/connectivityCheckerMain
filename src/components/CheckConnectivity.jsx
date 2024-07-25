@@ -9,7 +9,6 @@ export class ConnectChecker extends Component {
 
         // Bind methods
         this.updateOnlineStatus = this.updateOnlineStatus.bind(this);
-        this.onChange = this.onChange.bind(this);
     }
 
     componentDidMount() {
@@ -31,27 +30,23 @@ export class ConnectChecker extends Component {
     updateOnlineStatus() {
         const isOnline = navigator.onLine;
         console.log(`Online status: ${isOnline}`); // Log online status
-        this.setState({ isOnline }, this.onChange);
+
+        // Update the state
+        this.setState({ isOnline }, () => {
+            // Update connectivityBoolean based on the online status
+            if (this.props.onConnectivityChange) {
+                this.props.onConnectivityChange(isOnline);
+            }
+
+            // Execute onChangeAction if it exists
+            if (this.props.onChangeAction) {
+                this.props.onChangeAction.execute();
+            }
+        });
     }
 
     render() {
-        console.log(`Render: ${this.state.isOnline}`); // Log render calls
-        return (
-            <div>
-                <p>{this.state.isOnline ? "You are online" : "You are offline"}</p>
-            </div>
-        );
-    }
-
-    onChange = () => {
-        console.log("onChange triggered"); // Add log to check if method is called
-        // Update ConnectivityBoolean prop
-         if (typeof this.props.connectivityBoolean === "function") {
-             this.props.connectivityBoolean(this.state.isOnline);
-         }
-
-        if (this.props.onChangeAction) {
-            this.props.onChangeAction.execute();
-        }
+        // No JSX required, but the render method must exist
+        return null;
     }
 }
