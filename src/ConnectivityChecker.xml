@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="kobeon.connectivitychecker.ConnectivityChecker" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
-        supportedPlatform="Web"
-        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+<widget id="kobeon.connectivitychecker.ConnectivityChecker" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Connectivity Checker</name>
     <description>A widget for PWA which triggers an event when the connectivity status is changed from online to offline or vice versa</description>
-    <icon/>
     <properties>
         <propertyGroup caption="General">
             <property key="connectivityBoolean" type="attribute">

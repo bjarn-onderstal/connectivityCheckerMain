@@ -1,14 +1,6 @@
 import { createElement, Component } from "react";
 
 export class ConnectChecker extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isOnline: navigator.onLine
-        };
-        this.updateOnlineStatus = this.updateOnlineStatus.bind(this);
-    }
-
     componentDidMount() {
         window.addEventListener("online", this.updateOnlineStatus);
         window.addEventListener("offline", this.updateOnlineStatus);
@@ -16,20 +8,18 @@ export class ConnectChecker extends Component {
         this.updateOnlineStatus();
     }
 
-    updateOnlineStatus() {
+    updateOnlineStatus = () => {
         const isOnline = navigator.onLine;
-        console.log(`Online status: ${isOnline}`); // Log online status
-        this.setState({ isOnline }, () => {
-            // Update the Mendix attribute
-           this.props.connectivityBoolean.setValue(isOnline);
+        // Update the Mendix attribute
+        this.props.connectivityBoolean.setValue(isOnline);
 
-            // Execute onChangeAction if it exists
-            if (this.props.onChangeAction) {
-                this.props.onChangeAction.execute();
-            }
-        });
-    }
+        // Execute onChangeAction if it exists
+        if (this.props.onChangeAction) {
+            this.props.onChangeAction.execute();
+        }
+    };
 
     render() {
+        return null;
     }
 }
