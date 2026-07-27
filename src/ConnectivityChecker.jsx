@@ -1,14 +1,7 @@
-import { createElement, Component } from "react";
-
 import { ConnectChecker } from "./components/CheckConnectivity";
 
-export class ConnectivityChecker extends Component {
-    render() {
-        return (
-            <ConnectChecker
-                connectivityBoolean={this.props.connectivityBoolean}
-                onChangeAction={this.props.onChangeAction}
-            />
-        );
-    }
+import { createElement } from "react";
+
+export function ConnectivityChecker(props) {
+    return <ConnectChecker connectivityBoolean={props.connectivityBoolean} onChangeAction={props.onChangeAction} />;
 }
