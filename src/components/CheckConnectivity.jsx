@@ -1,4 +1,4 @@
-import { createElement, useCallback, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 export function ConnectChecker({ connectivityBoolean, onChangeAction }) {
     const updateOnlineStatus = useCallback(() => {
