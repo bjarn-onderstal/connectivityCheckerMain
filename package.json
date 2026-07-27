@@ -30,11 +30,17 @@
   "resolutions": {
     "react": "18.2.0",
     "react-native": "0.72.7",
-    "shell-quote": "^1.10.0"
+    "shell-quote": "^1.10.0",
+    "postcss": "^8.5.18",
+    "brace-expansion": "^5.0.8",
+    "svgo": "^3.3.4"
   },
   "overrides": {
     "react": "18.2.0",
     "react-native": "0.72.7",
-    "shell-quote": "^1.10.0"
+    "shell-quote": "^1.10.0",
+    "postcss": "^8.5.18",
+    "brace-expansion": "^5.0.8",
+    "svgo": "^3.3.4"
   }
 }
